@@ -1,4 +1,5 @@
 Summary:	LAM/MPI (Local Area Multicomputer) programming environment
+Summary(pl):	¦rodowisko programistyczne LAM/MPI
 Name:		lam
 Version:	6.5.6
 Release:	1 
@@ -14,11 +15,11 @@ Group(ru):	òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
 Group(uk):	òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
 Source0:	%{name}-%{version}.tar.gz
 URL:		http://www.lam-mpi.org/
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Provides:	mpi
-BuildRequires:	rsh
 BuildRequires:  autoconf
 BuildRequires:  automake
+BuildRequires:	rsh
+Provides:	mpi
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description 
 LAM (Local Area Multicomputer) is an MPI programming environment and
@@ -46,6 +47,29 @@ LAM web site). On the second level, the MPI library is instrumented to
 produce a cummulative record of communication, which can be visualized
 either at runtime or post-mortem.
 
+%description -l pl
+LAM (Local Area Multicomputer) jest ¶rodowiskiem programistycznym MPI
+dla heterogenicznych komputerów w sieci. Z u¿yciem LAM/MPI dedykowany
+klaster lub instniej±ca infrastruktura obliczaj±ca mo¿e siê zachowywaæ
+jak pojedynczy, równoleg³y komputer. LAM/MPI jest uwa¿ana za
+"przyjazne dla klastrów" - oferuje bazuj±c± na demonie kontrolê i
+uruchamianie procesów oraz protoko³y szybkiego przesy³ania
+komunikatów. LAM/MPI mo¿e u¿ywaæ TCP/IP lub dzielonej pamiêci do
+przesy³ania komunikatów (aktualnie s³u¿± do tego ró¿ne pakiety).
+
+Mo¿liwo¶ci LAM to pe³na implementacja MPI-1 (z wyj±tkiem tego, ¿e LAM
+nie obs³uguje anulowania wysy³ania) i du¿ej czê¶ci MPI-2. Kompatybilne
+aplikacje s± przeno¶ne na poziomie ¼róde³ pomiêdzy LAM/MPI i innymi
+implementacjami standardu MPI. Oprócz implementacji standardu, LAM/MPI
+oferuje rozszerzone mo¿liwo¶ci monitorowania na potrzeby
+odpluskwiania. Monitorowanie wystêpuje na dwóch poziomach. Po
+pierwsze, LAM/MPI pozwala na zrzut procesu i stanu komunikatu w
+dowolnej chwili. Ten zrzut zawiera wszystko, co zwi±zane z
+synchronizacj±, plus mapy/sygnatury typów danych, cz³onkowstwo w
+grupach komunikacyjnych i zawarto¶ci komunikatów. Po drugie,
+biblioteka MPI mo¿e zapisywaæ ca³± komunikacjê, która mo¿e byæ
+wizualizowana na bie¿±co lub post-mortem.
+
 %prep
 %setup -q
 
@@ -62,7 +86,8 @@ rm -rf $RPM_BUILD_ROOT
 %makeinstall
 
 rm -f $RPM_BUILD_ROOT/usr/include/mpi++.h
-ln -s mpi2c++/mpi++.h $RPM_BUILD_ROOT/usr/include/mpi++.h
+ln -sf mpi2c++/mpi++.h $RPM_BUILD_ROOT/usr/include/mpi++.h
+
 gzip -9nf LICENSE HISTORY INSTALL README RELEASE_NOTES
 
 %clean
@@ -73,7 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %doc examples
 %config %{_sysconfdir}
-%{_bindir}/*
+%attr(755,root,root) %{_bindir}/*
 %{_mandir}/*/*
 %{_includedir}/*
 %{_libdir}/*
