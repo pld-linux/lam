@@ -4,7 +4,7 @@ Summary(pl):	¦rodowisko programistyczne LAM/MPI
 Summary(pt_BR):	LAM MPI
 Name:		lam
 Version:	7.0.5
-Release:	1
+Release:	2
 Epoch:		2
 Vendor:		LAM/MPI Team
 License:	BSD
