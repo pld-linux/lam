@@ -3,14 +3,14 @@ Summary(es):	LAM MPI
 Summary(pl):	¦rodowisko programistyczne LAM/MPI
 Summary(pt_BR):	LAM MPI
 Name:		lam
-Version:	6.5.6
-Release:	6
+Version:	7.0
+Release:	1
 Epoch:		2
 Vendor:		LAM/MPI Team
 License:	BSD
 Group:		Development/Libraries
-Source0:	%{name}-%{version}.tar.gz
-# Source0-md5:	5b72e858eaba6acfd1d3ea7fd7ebb341
+Source0:	http://www.lam-mpi.org/download/files/%{name}-%{version}.tar.gz
+# Source0-md5:	ca0b87fdde6adc6689dcbe5fc9483923
 URL:		http://www.lam-mpi.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -97,24 +97,34 @@ chmod -R u+w .
 %{__autoconf}
 %{__automake}
 %configure \
-	--without-fc \
+	--with-rpi \
 	--with-rsh="%{_bindir}/ssh -x"
 %{__make} all
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT/usr/include/mpi++.h
 ln -sf mpi2c++/mpi++.h $RPM_BUILD_ROOT/usr/include/mpi++.h
+
+# Rename the ROMIO doc files so that we can install them in the same
+# doc root later, and not overwrite LAM's doc files.
+
+for file in README README_LAM COPYRIGHT; do
+	mv romio/$file romio/romio-$file
+done
+mv romio/doc/users-guide.ps.gz romio/doc/romio-users-guide.ps.gz
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE HISTORY INSTALL README RELEASE_NOTES
+%doc LICENSE HISTORY INSTALL README
 %doc examples
+%doc doc/*.pdf romio/doc/* romio/romio-{README*,COPYRIGHT}
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/*
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/*/*
