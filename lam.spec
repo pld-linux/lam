@@ -15,6 +15,7 @@ URL:		http://www.lam-mpi.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
+BuildRequires:	gcc-g77
 Provides:	mpi
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -92,6 +93,7 @@ execução. LAM implementa totalmente o padrão MPI.
 
 %build
 chmod -R u+w .
+touch config/lam_check_fd_setsize.m4
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
