@@ -18,7 +18,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Provides:	mpi
 BuildRequires:	rsh
 BuildRequires:  autoconf
-BuildRequires:  aclocal
+BuildRequires:  automake
 
 %description 
 LAM (Local Area Multicomputer) is an MPI programming environment and
@@ -50,9 +50,10 @@ either at runtime or post-mortem.
 %setup -q
 
 %build
+libtoolize --copy --force
 aclocal
 autoconf
-libtoolize --copy --force
+automake -a -c
 %configure --without-fc
 %{__make} all
 
@@ -69,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE.gz HISTORY.gz INSTALL.gz README.gz RELEASE_NOTES.gz 
+%doc *.gz
 %doc examples
 %config %{_sysconfdir}
 %{_bindir}/*
