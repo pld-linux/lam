@@ -2,19 +2,19 @@ Summary:	LAM/MPI (Local Area Multicomputer) programming environment
 Summary(pl):	¦rodowisko programistyczne LAM/MPI
 Name:		lam
 Version:	6.5.6
-Release:	1 
+Release:	1
 Vendor:		LAM/MPI Team
 License:	BSD
 Group:		Development/Libraries
 Source0:	%{name}-%{version}.tar.gz
 URL:		http://www.lam-mpi.org/
-BuildRequires:  autoconf
-BuildRequires:  automake
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	rsh
 Provides:	mpi
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%description 
+%description
 LAM (Local Area Multicomputer) is an MPI programming environment and
 development system for heterogeneous computers on a network. With
 LAM/MPI, a dedicated cluster or an existing network computing
