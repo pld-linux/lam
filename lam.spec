@@ -4,7 +4,7 @@ Summary(pl):	¦rodowisko programistyczne LAM/MPI
 Summary(pt_BR):	LAM MPI
 Name:		lam
 Version:	6.5.6
-Release:	5
+Release:	6
 Epoch:		2
 Vendor:		LAM/MPI Team
 License:	BSD
@@ -115,7 +115,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %doc examples
-%config %{_sysconfdir}
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/*
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/*/*
 %{_includedir}/*
