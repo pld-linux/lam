@@ -3,14 +3,14 @@ Summary(es):	LAM MPI
 Summary(pl):	¦rodowisko programistyczne LAM/MPI
 Summary(pt_BR):	LAM MPI
 Name:		lam
-Version:	7.0
+Version:	7.0.2
 Release:	1
 Epoch:		2
 Vendor:		LAM/MPI Team
 License:	BSD
 Group:		Development/Libraries
 Source0:	http://www.lam-mpi.org/download/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	a13d803518bb388ed7d42e7799bfe81b
+# Source0-md5:	c8681dcee3635d1b734e79af6e53820a
 URL:		http://www.lam-mpi.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
