@@ -10,6 +10,7 @@ Vendor:		LAM/MPI Team
 License:	BSD
 Group:		Development/Libraries
 Source0:	%{name}-%{version}.tar.gz
+# Source0-md5:	5b72e858eaba6acfd1d3ea7fd7ebb341
 URL:		http://www.lam-mpi.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
