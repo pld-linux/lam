@@ -3,14 +3,14 @@ Summary(es):	LAM MPI
 Summary(pl):	¦rodowisko programistyczne LAM/MPI
 Summary(pt_BR):	LAM MPI
 Name:		lam
-Version:	7.0.2
-Release:	2
+Version:	7.0.4
+Release:	1
 Epoch:		2
 Vendor:		LAM/MPI Team
 License:	BSD
 Group:		Development/Libraries
 Source0:	http://www.lam-mpi.org/download/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	c8681dcee3635d1b734e79af6e53820a
+# Source0-md5:	cf0bc94ee149ea84b3bc700a383808e1
 URL:		http://www.lam-mpi.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -96,6 +96,10 @@ chmod -R u+w .
 %{__aclocal}
 %{__autoconf}
 %{__automake}
+for i in `find . -name config.sub`; do
+	cp -f /usr/share/automake/config.sub $i
+done;
+
 %configure \
 	--with-rpi \
 	--with-rsh="%{_bindir}/ssh -x"
