@@ -51,6 +51,7 @@ either at runtime or post-mortem.
 %build
 aclocal
 autoconf
+libtoolize --copy --force
 %configure --without-fc
 %{__make} all
 
