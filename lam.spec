@@ -90,7 +90,7 @@ execução. LAM implementa totalmente o padrão MPI.
 
 %build
 chmod -R u+w .
-libtoolize --copy --force
+%{__libtoolize}
 aclocal
 %{__autoconf}
 %{__automake}
