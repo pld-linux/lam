@@ -9,8 +9,8 @@ Epoch:		2
 Vendor:		LAM/MPI Team
 License:	BSD
 Group:		Development/Libraries
-Source0:	http://www.lam-mpi.org/download/files/%{name}-%{version}.tar.gz
-# Source0-md5:	ca0b87fdde6adc6689dcbe5fc9483923
+Source0:	http://www.lam-mpi.org/download/files/%{name}-%{version}.tar.bz2
+# Source0-md5:	a13d803518bb388ed7d42e7799bfe81b
 URL:		http://www.lam-mpi.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
