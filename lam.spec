@@ -117,16 +117,19 @@ for file in README README_LAM COPYRIGHT; do
 done
 mv romio/doc/users-guide.ps.gz romio/doc/romio-users-guide.ps.gz
 
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+mv examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 %doc LICENSE HISTORY INSTALL README
-%doc examples
 %doc doc/*.pdf romio/doc/* romio/romio-{README*,COPYRIGHT}
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/*
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/*/*
 %{_includedir}/*
 %{_libdir}/*
+%{_examplesdir}/%{name}-%{version}
