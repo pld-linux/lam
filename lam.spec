@@ -10,7 +10,6 @@ Source0:	%{name}-%{version}.tar.gz
 URL:		http://www.lam-mpi.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	rsh
 Provides:	mpi
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -67,11 +66,14 @@ wizualizowana na bie¿±co lub post-mortem.
 %setup -q
 
 %build
+chmod -R u+w .
 libtoolize --copy --force
 aclocal
 autoconf
 automake -a -c -f
-%configure --without-fc
+%configure \
+	--without-fc \
+	--with-rsh="%{_bindir}/ssh -x"
 %{__make} all
 
 %install
