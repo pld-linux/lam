@@ -70,7 +70,7 @@ wizualizowana na bie¿±co lub post-mortem.
 libtoolize --copy --force
 aclocal
 autoconf
-automake -a -c
+automake -a -c -f
 %configure --without-fc
 %{__make} all
 
