@@ -6,13 +6,6 @@ Release:	1
 Vendor:		LAM/MPI Team
 License:	BSD
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Source0:	%{name}-%{version}.tar.gz
 URL:		http://www.lam-mpi.org/
 BuildRequires:  autoconf
