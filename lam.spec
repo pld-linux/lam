@@ -15,9 +15,10 @@ Group(uk):	Розробка/Б╕бл╕отеки
 Source0:	%{name}-%{version}.tar.gz
 URL:		http://www.lam-mpi.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Epoch:		2
 Provides:	mpi
 BuildRequires:	rsh
+BuildRequires:  autoconf
+BuildRequires:  aclocal
 
 %description 
 LAM (Local Area Multicomputer) is an MPI programming environment and
@@ -61,13 +62,14 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT/usr/include/mpi++.h
 ln -s mpi2c++/mpi++.h $RPM_BUILD_ROOT/usr/include/mpi++.h
+gzip -9nf LICENSE HISTORY INSTALL README RELEASE_NOTES
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE HISTORY INSTALL README RELEASE_NOTES 
+%doc LICENSE.gz HISTORY.gz INSTALL.gz README.gz RELEASE_NOTES.gz 
 %doc examples
 %config %{_sysconfdir}
 %{_bindir}/*
