@@ -13,6 +13,7 @@ Source0:	%{name}-%{version}.tar.gz
 URL:		http://www.lam-mpi.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libtool
 Provides:	mpi
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -91,7 +92,7 @@ execução. LAM implementa totalmente o padrão MPI.
 %build
 chmod -R u+w .
 %{__libtoolize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
@@ -106,14 +107,12 @@ rm -rf $RPM_BUILD_ROOT
 rm -f $RPM_BUILD_ROOT/usr/include/mpi++.h
 ln -sf mpi2c++/mpi++.h $RPM_BUILD_ROOT/usr/include/mpi++.h
 
-gzip -9nf LICENSE HISTORY INSTALL README RELEASE_NOTES
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc LICENSE HISTORY INSTALL README RELEASE_NOTES
 %doc examples
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/*
 %attr(755,root,root) %{_bindir}/*
