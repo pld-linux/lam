@@ -92,8 +92,8 @@ execução. LAM implementa totalmente o padrão MPI.
 chmod -R u+w .
 libtoolize --copy --force
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure \
 	--without-fc \
 	--with-rsh="%{_bindir}/ssh -x"
