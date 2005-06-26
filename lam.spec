@@ -27,8 +27,7 @@ infrastructure can act as a single parallel computer. LAM/MPI is
 considered to be "cluster friendly", in that it offers daemon-based
 process startup/control as well as fast client-to-client message
 passing protocols. LAM/MPI can use TCP/IP and/or shared memory for
-message passing (currently, different RPMs are supplied for this --
-see the main LAM web site for details).
+message passing.
 
 LAM features a full implementation of MPI-1 (with the exception that
 LAM does not support cancelling of sends), and much of MPI-2.
@@ -59,22 +58,23 @@ el patrón MPI.
 LAM (Local Area Multicomputer) jest ¶rodowiskiem programistycznym MPI
 dla heterogenicznych komputerów w sieci. Z u¿yciem LAM/MPI dedykowany
 klaster lub istniej±ca infrastruktura obliczaj±ca mo¿e siê zachowywaæ
-jak pojedynczy, równoleg³y komputer. LAM/MPI jest uwa¿ana za "przyjazne 
-dla klastrów" - oferuje bazuj±c± na demonie kontrolê i uruchamianie 
-procesów oraz protoko³y szybkiego przesy³ania komunikatów. LAM/MPI 
-mo¿e u¿ywaæ TCP/IP lub dzielonej pamiêci do przesy³ania komunikatów 
-(aktualnie s³u¿± do tego ró¿ne pakiety).
+jak pojedynczy, równoleg³y komputer. LAM/MPI jest uwa¿ana za
+"przyjazne dla klastrów" - oferuje bazuj±c± na demonie kontrolê i
+uruchamianie procesów oraz protoko³y szybkiego przesy³ania
+komunikatów. LAM/MPI mo¿e u¿ywaæ TCP/IP lub dzielonej pamiêci do
+przesy³ania komunikatów.
 
 Mo¿liwo¶ci LAM to pe³na implementacja MPI-1 (z wyj±tkiem tego, ¿e LAM
 nie obs³uguje anulowania wysy³ania) i du¿ej czê¶ci MPI-2. Kompatybilne
 aplikacje s± przeno¶ne na poziomie ¼róde³ pomiêdzy LAM/MPI i innymi
 implementacjami standardu MPI. Oprócz implementacji standardu, LAM/MPI
-oferuje rozszerzone mo¿liwo¶ci monitorowania na potrzeby odpluskwiania. 
-Monitorowanie wystêpuje na dwóch poziomach. Po pierwsze, LAM/MPI pozwala 
-na zrzut procesu i stanu komunikatu w dowolnej chwili. Ten zrzut zawiera 
-wszystko, co zwi±zane z synchronizacj±, plus mapy/sygnatury typów danych, 
-cz³onkowstwo w grupach komunikacyjnych i zawarto¶ci komunikatów. Po 
-drugie, biblioteka MPI mo¿e zapisywaæ ca³± komunikacjê, która mo¿e byæ
+oferuje rozszerzone mo¿liwo¶ci monitorowania na potrzeby
+odpluskwiania. Monitorowanie wystêpuje na dwóch poziomach. Po
+pierwsze, LAM/MPI pozwala na zrzut procesu i stanu komunikatu w
+dowolnej chwili. Ten zrzut zawiera wszystko, co zwi±zane z
+synchronizacj±, plus mapy/sygnatury typów danych, cz³onkowstwo w
+grupach komunikacyjnych i zawarto¶ci komunikatów. Po drugie,
+biblioteka MPI mo¿e zapisywaæ ca³± komunikacjê, która mo¿e byæ
 wizualizowana na bie¿±co lub post-mortem.
 
 %description -l pt_BR
@@ -111,8 +111,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT/usr/include/mpi++.h
-ln -sf mpi2c++/mpi++.h $RPM_BUILD_ROOT/usr/include/mpi++.h
+rm -f $RPM_BUILD_ROOT%{_includedir}/mpi++.h
+ln -sf mpi2c++/mpi++.h $RPM_BUILD_ROOT%{_includedir}/mpi++.h
 
 # Rename the ROMIO doc files so that we can install them in the same
 # doc root later, and not overwrite LAM's doc files.
@@ -132,7 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc LICENSE HISTORY INSTALL README
 %doc doc/*.pdf romio/doc/* romio/romio-{README*,COPYRIGHT}
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/*/*
 %{_includedir}/*
