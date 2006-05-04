@@ -4,7 +4,7 @@ Summary(pl):	¦rodowisko programistyczne LAM/MPI
 Summary(pt_BR):	LAM MPI
 Name:		lam
 Version:	7.1.1
-Release:	1
+Release:	2
 Epoch:		2
 Vendor:		LAM/MPI Team
 License:	BSD
@@ -102,6 +102,7 @@ for i in `find . -name config.sub`; do
 done;
 
 %configure \
+	--with-pic \
 	--with-rpi \
 	--with-rsh="%{_bindir}/ssh -x"
 %{__make} all
