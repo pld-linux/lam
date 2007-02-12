@@ -1,7 +1,7 @@
 Summary:	LAM/MPI (Local Area Multicomputer) programming environment
-Summary(es):	LAM MPI
-Summary(pl):	¦rodowisko programistyczne LAM/MPI
-Summary(pt_BR):	LAM MPI
+Summary(es.UTF-8):   LAM MPI
+Summary(pl.UTF-8):   Åšrodowisko programistyczne LAM/MPI
+Summary(pt_BR.UTF-8):   LAM MPI
 Name:		lam
 Version:	7.1.1
 Release:	2
@@ -44,48 +44,48 @@ LAM web site). On the second level, the MPI library is instrumented to
 produce a cummulative record of communication, which can be visualized
 either at runtime or post-mortem.
 
-%description -l es
+%description -l es.UTF-8
 LAM (Local Area Multicomputer) es un ambiente de desarrollo MPI para
-computadores heterogéneos en una red. Con LAM, un cluster permanente o
+computadores heterogÃ©neos en una red. Con LAM, un cluster permanente o
 una red ya existente pueden servir como un computador paralelo.
 
-LAM tiene entre sus ventajas el soporte extensivo a la depuración
-durante el ciclo de desarrollo de los aplicativos y un óptimo
-desarrollo en el ambiente de ejecución. LAM implementa completamente
-el patrón MPI.
+LAM tiene entre sus ventajas el soporte extensivo a la depuraciÃ³n
+durante el ciclo de desarrollo de los aplicativos y un Ã³ptimo
+desarrollo en el ambiente de ejecuciÃ³n. LAM implementa completamente
+el patrÃ³n MPI.
 
-%description -l pl
-LAM (Local Area Multicomputer) jest ¶rodowiskiem programistycznym MPI
-dla heterogenicznych komputerów w sieci. Z u¿yciem LAM/MPI dedykowany
-klaster lub istniej±ca infrastruktura obliczaj±ca mo¿e siê zachowywaæ
-jak pojedynczy, równoleg³y komputer. LAM/MPI jest uwa¿ana za
-"przyjazne dla klastrów" - oferuje bazuj±c± na demonie kontrolê i
-uruchamianie procesów oraz protoko³y szybkiego przesy³ania
-komunikatów. LAM/MPI mo¿e u¿ywaæ TCP/IP lub dzielonej pamiêci do
-przesy³ania komunikatów.
+%description -l pl.UTF-8
+LAM (Local Area Multicomputer) jest Å›rodowiskiem programistycznym MPI
+dla heterogenicznych komputerÃ³w w sieci. Z uÅ¼yciem LAM/MPI dedykowany
+klaster lub istniejÄ…ca infrastruktura obliczajÄ…ca moÅ¼e siÄ™ zachowywaÄ‡
+jak pojedynczy, rÃ³wnolegÅ‚y komputer. LAM/MPI jest uwaÅ¼ana za
+"przyjazne dla klastrÃ³w" - oferuje bazujÄ…cÄ… na demonie kontrolÄ™ i
+uruchamianie procesÃ³w oraz protokoÅ‚y szybkiego przesyÅ‚ania
+komunikatÃ³w. LAM/MPI moÅ¼e uÅ¼ywaÄ‡ TCP/IP lub dzielonej pamiÄ™ci do
+przesyÅ‚ania komunikatÃ³w.
 
-Mo¿liwo¶ci LAM to pe³na implementacja MPI-1 (z wyj±tkiem tego, ¿e LAM
-nie obs³uguje anulowania wysy³ania) i du¿ej czê¶ci MPI-2. Kompatybilne
-aplikacje s± przeno¶ne na poziomie ¼róde³ pomiêdzy LAM/MPI i innymi
-implementacjami standardu MPI. Oprócz implementacji standardu, LAM/MPI
-oferuje rozszerzone mo¿liwo¶ci monitorowania na potrzeby
-odpluskwiania. Monitorowanie wystêpuje na dwóch poziomach. Po
+MoÅ¼liwoÅ›ci LAM to peÅ‚na implementacja MPI-1 (z wyjÄ…tkiem tego, Å¼e LAM
+nie obsÅ‚uguje anulowania wysyÅ‚ania) i duÅ¼ej czÄ™Å›ci MPI-2. Kompatybilne
+aplikacje sÄ… przenoÅ›ne na poziomie ÅºrÃ³deÅ‚ pomiÄ™dzy LAM/MPI i innymi
+implementacjami standardu MPI. OprÃ³cz implementacji standardu, LAM/MPI
+oferuje rozszerzone moÅ¼liwoÅ›ci monitorowania na potrzeby
+odpluskwiania. Monitorowanie wystÄ™puje na dwÃ³ch poziomach. Po
 pierwsze, LAM/MPI pozwala na zrzut procesu i stanu komunikatu w
-dowolnej chwili. Ten zrzut zawiera wszystko, co zwi±zane z
-synchronizacj±, plus mapy/sygnatury typów danych, cz³onkowstwo w
-grupach komunikacyjnych i zawarto¶ci komunikatów. Po drugie,
-biblioteka MPI mo¿e zapisywaæ ca³± komunikacjê, która mo¿e byæ
-wizualizowana na bie¿±co lub post-mortem.
+dowolnej chwili. Ten zrzut zawiera wszystko, co zwiÄ…zane z
+synchronizacjÄ…, plus mapy/sygnatury typÃ³w danych, czÅ‚onkowstwo w
+grupach komunikacyjnych i zawartoÅ›ci komunikatÃ³w. Po drugie,
+biblioteka MPI moÅ¼e zapisywaÄ‡ caÅ‚Ä… komunikacjÄ™, ktÃ³ra moÅ¼e byÄ‡
+wizualizowana na bieÅ¼Ä…co lub post-mortem.
 
-%description -l pt_BR
-LAM (Local Area Multicomputer) é um ambiente de desenvolvimento MPI
-para computadores heterogêneos em uma rede. Com LAM, um cluster
-dedicado ou uma rede já existentes podem servir como um computador
+%description -l pt_BR.UTF-8
+LAM (Local Area Multicomputer) Ã© um ambiente de desenvolvimento MPI
+para computadores heterogÃªneos em uma rede. Com LAM, um cluster
+dedicado ou uma rede jÃ¡ existentes podem servir como um computador
 paralelo.
 
-LAM tem como vantagens o suporte extensivo a depuração durante o ciclo
-de desenvolvimento dos aplicativos e ótima performance em ambiente de
-execução. LAM implementa totalmente o padrão MPI.
+LAM tem como vantagens o suporte extensivo a depuraÃ§Ã£o durante o ciclo
+de desenvolvimento dos aplicativos e Ã³tima performance em ambiente de
+execuÃ§Ã£o. LAM implementa totalmente o padrÃ£o MPI.
 
 %prep
 %setup -q
