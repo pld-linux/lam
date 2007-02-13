@@ -1,7 +1,7 @@
 Summary:	LAM/MPI (Local Area Multicomputer) programming environment
-Summary(es.UTF-8):   LAM MPI
-Summary(pl.UTF-8):   Środowisko programistyczne LAM/MPI
-Summary(pt_BR.UTF-8):   LAM MPI
+Summary(es.UTF-8):	LAM MPI
+Summary(pl.UTF-8):	Środowisko programistyczne LAM/MPI
+Summary(pt_BR.UTF-8):	LAM MPI
 Name:		lam
 Version:	7.1.1
 Release:	2
