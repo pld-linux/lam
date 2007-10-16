@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Środowisko programistyczne LAM/MPI
 Summary(pt_BR.UTF-8):	LAM MPI
 Name:		lam
 Version:	7.1.3
-Release:	1
+Release:	2
 Epoch:		2
 Vendor:		LAM/MPI Team
 License:	BSD
@@ -104,7 +104,9 @@ done;
 %configure \
 	--with-pic \
 	--with-rpi \
-	--with-rsh="%{_bindir}/ssh -x"
+	--with-rsh="%{_bindir}/ssh -x" \
+	--with-fc=gfortran
+
 %{__make} all
 
 %install
