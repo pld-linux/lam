@@ -3,14 +3,14 @@ Summary(es.UTF-8):	LAM MPI
 Summary(pl.UTF-8):	Środowisko programistyczne LAM/MPI
 Summary(pt_BR.UTF-8):	LAM MPI
 Name:		lam
-Version:	7.1.1
-Release:	2
+Version:	7.1.3
+Release:	1
 Epoch:		2
 Vendor:		LAM/MPI Team
 License:	BSD
 Group:		Development/Libraries
 Source0:	http://www.lam-mpi.org/download/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	0a3eee53281884a063ce2c44793672b3
+# Source0-md5:	dccca92409654f4f822b1d343ca75be6
 URL:		http://www.lam-mpi.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
