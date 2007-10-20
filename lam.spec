@@ -14,8 +14,8 @@ Source0:	http://www.lam-mpi.org/download/files/%{name}-%{version}.tar.bz2
 URL:		http://www.lam-mpi.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gcc-fortran
 BuildRequires:	libtool
-BuildRequires:	gcc-g77
 Provides:	mpi
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
