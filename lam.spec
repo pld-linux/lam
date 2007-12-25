@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Środowisko programistyczne LAM/MPI
 Summary(pt_BR.UTF-8):	LAM MPI
 Name:		lam
 Version:	7.1.3
-Release:	2
+Release:	3
 Epoch:		2
 Vendor:		LAM/MPI Team
 License:	BSD
@@ -139,5 +139,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/*/*
 %{_includedir}/*
-%{_libdir}/*
+%{_libdir}/lib*
+%{_libdir}/lam
 %{_examplesdir}/%{name}-%{version}
