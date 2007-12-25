@@ -111,6 +111,7 @@ done;
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
@@ -135,10 +136,30 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc LICENSE HISTORY INSTALL README
 %doc doc/*.pdf romio/doc/* romio/romio-{README*,COPYRIGHT}
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/lam-bhost.def
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/lam-conf.lamd
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/lam-helpfile
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/lam-hostmap.txt
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/lam-ssi-boot-globus-helpfile
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/lam-ssi-boot-slurm-helpfile
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/lam-ssi-crlam-self-helpfile
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/lam-ssi-crmpi-self-helpfile
 %attr(755,root,root) %{_bindir}/*
-%{_mandir}/*/*
-%{_includedir}/*
-%{_libdir}/lib*
+%{_mandir}/man[1357]/*
+# ???
+%{_mandir}/mans/mpi.share*
+%{_libdir}/liblam.a
+%{_libdir}/liblamf77mpi.a
+%{_libdir}/liblammpi++.a
+%{_libdir}/libmpi.a
+%{_libdir}/liblam.la
+%{_libdir}/liblamf77mpi.la
+%{_libdir}/liblammpi++.la
+%{_libdir}/libmpi.la
+# not libtool lib
+%{_libdir}/liblammpio.a
 %{_libdir}/lam
+%{_includedir}/lam_config*.h
+%{_includedir}/mpi*.h
+%{_includedir}/mpi2cxx
 %{_examplesdir}/%{name}-%{version}
