@@ -4,9 +4,8 @@ Summary(pl.UTF-8):	Środowisko programistyczne LAM/MPI
 Summary(pt_BR.UTF-8):	LAM MPI
 Name:		lam
 Version:	7.1.3
-Release:	3
+Release:	4
 Epoch:		2
-Vendor:		LAM/MPI Team
 License:	BSD
 Group:		Development/Libraries
 Source0:	http://www.lam-mpi.org/download/files/%{name}-%{version}.tar.bz2
@@ -90,6 +89,13 @@ execução. LAM implementa totalmente o padrão MPI.
 %prep
 %setup -q
 
+# Rename the ROMIO doc files so that we can install them in the same
+# doc root later, and not overwrite LAM's doc files.
+for file in README README_LAM COPYRIGHT; do
+	mv romio/$file romio/romio-$file
+done
+mv romio/doc/users-guide.ps.gz romio/doc/romio-users-guide.ps.gz
+
 %build
 chmod -R u+w .
 touch config/lam_check_fd_setsize.m4
@@ -97,9 +103,9 @@ touch config/lam_check_fd_setsize.m4
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-for i in `find . -name config.sub`; do
+for i in $(find -name config.sub); do
 	cp -f /usr/share/automake/config.sub $i
-done;
+done
 
 %configure \
 	--with-pic \
@@ -115,19 +121,12 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_includedir}/mpi++.h
-ln -sf mpi2c++/mpi++.h $RPM_BUILD_ROOT%{_includedir}/mpi++.h
-
-# Rename the ROMIO doc files so that we can install them in the same
-# doc root later, and not overwrite LAM's doc files.
-
-for file in README README_LAM COPYRIGHT; do
-	mv romio/$file romio/romio-$file
-done
-mv romio/doc/users-guide.ps.gz romio/doc/romio-users-guide.ps.gz
+ln -snf mpi2c++/mpi++.h $RPM_BUILD_ROOT%{_includedir}/mpi++.h
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-mv examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+
+mv $RPM_BUILD_ROOT%{_mandir}/man{s,7}/mpi.share*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -146,8 +145,6 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/lam-ssi-crmpi-self-helpfile
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man[1357]/*
-# ???
-%{_mandir}/mans/mpi.share*
 %{_libdir}/liblam.a
 %{_libdir}/liblamf77mpi.a
 %{_libdir}/liblammpi++.a
