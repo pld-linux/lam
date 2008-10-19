@@ -1,0 +1,156 @@
+diff -u lam-7.1.3/config.org/cxx_find_template_repository.m4 lam-7.1.3/config/cxx_find_template_repository.m4
+--- lam-7.1.3/config.org/cxx_find_template_repository.m4	2006-06-24 22:42:44.000000000 +0200
++++ lam-7.1.3/config/cxx_find_template_repository.m4	2008-10-19 12:46:19.663095019 +0200
+@@ -82,7 +82,7 @@
+ }
+ 
+ int
+-main(int argc, char *argv[])
++main(int argc, char **argv)
+ {
+   foo<bar> var1(6);
+   foo< foo<bar> > var2(var1);
+diff -u lam-7.1.3/config.org/cxx_have_bool.m4 lam-7.1.3/config/cxx_have_bool.m4
+--- lam-7.1.3/config.org/cxx_have_bool.m4	2006-06-24 22:42:44.000000000 +0200
++++ lam-7.1.3/config/cxx_have_bool.m4	2008-10-19 12:46:26.849760809 +0200
+@@ -42,7 +42,7 @@
+ #include <stdio.h>
+ #include <sys/types.h>
+ 
+-int main(int argc, char* argv[]) {
++int main(int argc, char** argv) {
+   bool foo = (bool) 0;
+   printf("so foo is used and the compiler wont complain: %d", (int) foo);
+   return 0;
+diff -u lam-7.1.3/config.org/cxx_have_nothrow_new.m4 lam-7.1.3/config/cxx_have_nothrow_new.m4
+--- lam-7.1.3/config.org/cxx_have_nothrow_new.m4	2006-06-24 22:42:44.000000000 +0200
++++ lam-7.1.3/config/cxx_have_nothrow_new.m4	2008-10-19 12:46:32.446426255 +0200
+@@ -37,7 +37,7 @@
+ cat > conftest.cc <<EOF
+ #include <new>
+ 
+-int main(int argc, char* argv[]) {
++int main(int argc, char** argv) {
+   int *baz;
+   unsigned int foo = 3;
+   baz = new(std::nothrow) int;
+diff -u lam-7.1.3/config.org/cxx_have_true_false.m4 lam-7.1.3/config/cxx_have_true_false.m4
+--- lam-7.1.3/config.org/cxx_have_true_false.m4	2006-06-24 22:42:44.000000000 +0200
++++ lam-7.1.3/config/cxx_have_true_false.m4	2008-10-19 12:46:38.473092833 +0200
+@@ -41,7 +41,7 @@
+ #include <stdio.h>
+ #include <sys/types.h>
+ 
+-int main(int argc, char* argv[]) {
++int main(int argc, char** argv) {
+   int foo;
+   foo = (int) true;
+   foo = (int) false;
+diff -u lam-7.1.3/config.org/lam_check_bsd43_fd_passing.m4 lam-7.1.3/config/lam_check_bsd43_fd_passing.m4
+--- lam-7.1.3/config.org/lam_check_bsd43_fd_passing.m4	2006-06-24 22:42:44.000000000 +0200
++++ lam-7.1.3/config/lam_check_bsd43_fd_passing.m4	2008-10-19 12:46:45.083091594 +0200
+@@ -76,7 +76,7 @@
+ pid_t child_pid = 0;
+ 
+ int
+-main(int argc, char *argv[])
++main(int argc, char **argv)
+ {
+   int fd[2];
+   int status = 0;
+diff -u lam-7.1.3/config.org/lam_check_fd_setsize.m4 lam-7.1.3/config/lam_check_fd_setsize.m4
+--- lam-7.1.3/config.org/lam_check_fd_setsize.m4	2008-10-19 12:36:32.106694575 +0200
++++ lam-7.1.3/config/lam_check_fd_setsize.m4	2008-10-19 12:46:53.409756847 +0200
+@@ -86,7 +86,7 @@
+ #include <sys/resource.h>
+ #include <unistd.h>
+ int
+-main(int argc, char* argv[])
++main(int argc, char** argv)
+ {
+   int fd = 0;
+   struct rlimit rlp;
+diff -u lam-7.1.3/config.org/lam_check_prefix_memcpy.m4 lam-7.1.3/config/lam_check_prefix_memcpy.m4
+--- lam-7.1.3/config.org/lam_check_prefix_memcpy.m4	2006-06-24 22:42:44.000000000 +0200
++++ lam-7.1.3/config/lam_check_prefix_memcpy.m4	2008-10-19 12:47:01.256423275 +0200
+@@ -28,7 +28,7 @@
+ AC_TRY_RUN([
+ #include <stdio.h>
+ 
+-int main(int argc, char* argv[]) 
++int main(int argc, char** argv) 
+ {
+   FILE *fp = fopen("configtest.out", "w");
+ #ifdef __GLIBC__
+diff -u lam-7.1.3/config.org/lam_check_pthread_pids.m4 lam-7.1.3/config/lam_check_pthread_pids.m4
+--- lam-7.1.3/config.org/lam_check_pthread_pids.m4	2006-06-24 22:42:44.000000000 +0200
++++ lam-7.1.3/config/lam_check_pthread_pids.m4	2008-10-19 12:47:08.283091493 +0200
+@@ -44,7 +44,7 @@
+ #include <unistd.h>
+ #include <stdlib.h>
+ void *checkpid(void *arg);
+-int main(int argc, char* argv[]) {
++int main(int argc, char** argv) {
+   pthread_t thr;
+   int pid, retval;
+   pid = getpid();
+diff -u lam-7.1.3/config.org/lam_check_stdc.m4 lam-7.1.3/config/lam_check_stdc.m4
+--- lam-7.1.3/config.org/lam_check_stdc.m4	2006-06-24 22:42:44.000000000 +0200
++++ lam-7.1.3/config/lam_check_stdc.m4	2008-10-19 12:47:13.963713524 +0200
+@@ -23,7 +23,7 @@
+ extern "C" {
+ void exit(int);
+ #endif
+-int main(int argc, char* argv[])
++int main(int argc, char** argv)
+ {
+     FILE *f=fopen("conftestval", "w");
+ #ifndef __STDC__
+diff -u lam-7.1.3/config.org/lam_get_alignment.m4 lam-7.1.3/config/lam_get_alignment.m4
+--- lam-7.1.3/config.org/lam_get_alignment.m4	2006-06-24 22:42:44.000000000 +0200
++++ lam-7.1.3/config/lam_get_alignment.m4	2008-10-19 12:47:19.276421340 +0200
+@@ -24,7 +24,7 @@
+ #include <stdlib.h>
+ 
+ struct foo { char c; $1 x; };
+-int main(int argc, char* argv[])
++int main(int argc, char** argv)
+ {
+     struct foo *p = (struct foo *) malloc(sizeof(struct foo));
+     int diff;
+diff -u lam-7.1.3/config.org/lam_get_shmmax.m4 lam-7.1.3/config/lam_get_shmmax.m4
+--- lam-7.1.3/config.org/lam_get_shmmax.m4	2006-06-24 22:42:44.000000000 +0200
++++ lam-7.1.3/config/lam_get_shmmax.m4	2008-10-19 12:47:24.687045995 +0200
+@@ -44,7 +44,7 @@
+     return(1);
+ }
+ int
+-main(int argc, char* argv[])
++main(int argc, char** argv)
+ {
+     int	poolsize, maxalloc;
+     FILE *f=fopen("conftestval", "w");
+diff -u lam-7.1.3/config.org/lam_mutex_pshared.m4 lam-7.1.3/config/lam_mutex_pshared.m4
+--- lam-7.1.3/config.org/lam_mutex_pshared.m4	2006-06-24 22:42:44.000000000 +0200
++++ lam-7.1.3/config/lam_mutex_pshared.m4	2008-10-19 12:47:30.986686931 +0200
+@@ -17,7 +17,7 @@
+ define(LAM_MUTEX_PSHARED,[
+ AC_MSG_CHECKING(for process shared pthread mutex)
+ AC_TRY_RUN([#include <pthread.h>
+-int main(int argc, char* argv[]) {
++int main(int argc, char** argv) {
+   pthread_mutex_t m; pthread_mutexattr_t mattr;
+   if (pthread_mutexattr_init(&mattr)) return(1);
+   if (pthread_mutexattr_setpshared(&mattr, PTHREAD_PROCESS_SHARED)) return(1);
+diff -u lam-7.1.3/config.org/lam_wrapper_extra_ldflags.m4 lam-7.1.3/config/lam_wrapper_extra_ldflags.m4
+--- lam-7.1.3/config.org/lam_wrapper_extra_ldflags.m4	2006-06-24 22:42:44.000000000 +0200
++++ lam-7.1.3/config/lam_wrapper_extra_ldflags.m4	2008-10-19 12:47:37.866429251 +0200
+@@ -75,7 +75,7 @@
+ EOF
+     cat > conftest.c <<EOF
+ extern int foo(void);
+-int main(int argc, char* argv[]) { return foo(); }
++int main(int argc, char** argv) { return foo(); }
+ EOF
+ 
+     ../libtool --mode=compile $CC foo.c -o foo.lo -c > /dev/null 2>&1
