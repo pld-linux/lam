@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Środowisko programistyczne LAM/MPI
 Summary(pt_BR.UTF-8):	LAM MPI
 Name:		lam
 Version:	7.1.3
-Release:	6
+Release:	7
 Epoch:		2
 License:	BSD
 Group:		Development/Libraries
@@ -122,8 +122,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-ln -snf mpi2c++/mpi++.h $RPM_BUILD_ROOT%{_includedir}/mpi++.h
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
