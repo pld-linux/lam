@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Środowisko programistyczne LAM/MPI
 Summary(pt_BR.UTF-8):	LAM MPI
 Name:		lam
 Version:	7.1.3
-Release:	4
+Release:	5
 Epoch:		2
 License:	BSD
 Group:		Development/Libraries
