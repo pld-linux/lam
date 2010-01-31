@@ -11,6 +11,7 @@ Group:		Development/Libraries
 Source0:	http://www.lam-mpi.org/download/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	dccca92409654f4f822b1d343ca75be6
 Patch0:		%{name}-m4.patch
+Patch1:		%{name}-install.patch
 URL:		http://www.lam-mpi.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -90,6 +91,7 @@ execução. LAM implementa totalmente o padrão MPI.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 # Rename the ROMIO doc files so that we can install them in the same
 # doc root later, and not overwrite LAM's doc files.
