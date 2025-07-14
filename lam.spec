@@ -90,8 +90,8 @@ execução. LAM implementa totalmente o padrão MPI.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 # Rename the ROMIO doc files so that we can install them in the same
 # doc root later, and not overwrite LAM's doc files.
